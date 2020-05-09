@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tasks: null
+    tasks: []
   },
 
   /**
@@ -16,24 +16,23 @@ Page({
   onLoad: function (options) {
     this.getData()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
     
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
+  // 下拉刷新
   onPullDownRefresh: function(){
     this.getData(res => {
       wx.stopPullDownRefresh()
     })
+    this.pageData.skip = 0
+    this.tasks = []
+  },
+  // 触底刷新
+  onReachBottom: function(){
+    this.getData()
   },
   getData: function(callback){
     if(!callback){
@@ -42,13 +41,18 @@ Page({
     wx.showLoading({
       title: '数据加载中',
     })
-    todos.get().then(res => {
+    todos.skip(this.pageData.skip).get().then(res => {
+      let oldData = this.data.tasks
       this.setData({
-        tasks: res.data
+        tasks: oldData.concat(res.data)
       },res => {
+        this.pageData.skip += 20
         wx.hideLoading()
         callback()
       })
     })
+  },
+  pageData: {
+    skip: 0
   }
 })
