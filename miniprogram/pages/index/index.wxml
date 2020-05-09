@@ -1,3 +1,6 @@
 <!--pages/index.wxml-->
-<text>pages/index.wxml</text>
-<van-button type="primary">按钮</van-button>
+<van-cell-group>
+  <block wx:for="{{tasks}}" wx:key="item">
+    <van-cell title="{{item.title}}" />
+  </block>
+</van-cell-group>
