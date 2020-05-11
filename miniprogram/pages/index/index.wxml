@@ -1,6 +1,8 @@
 <!--pages/index.wxml-->
 <van-cell-group>
-  <block wx:for="{{tasks}}" wx:key="item">
-    <van-cell title="{{item.title}}" />
+  <block wx:for="{{tasks}}" wx:key="_openid">
+    <navigator url='../todoInfo/todoInfo?id={{item._id}}'>
+      <van-cell title="{{item.title}}" />
+    </navigator>
   </block>
 </van-cell-group>
