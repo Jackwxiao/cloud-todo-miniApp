@@ -1,6 +1,11 @@
 <!--pages/index.wxml-->
+<view class="plusBtn">
+<navigator url="../addTodo/addTodo">
+  <van-icon class="plusIcon" name="plus" color="#787777" />
+</navigator>
+</view>
 <van-cell-group>
-  <block wx:for="{{tasks}}" wx:key="_openid">
+  <block wx:for="{{tasks}}" wx:key="_id">
     <navigator url='../todoInfo/todoInfo?id={{item._id}}'>
       <van-cell title="{{item.title}}" />
     </navigator>
