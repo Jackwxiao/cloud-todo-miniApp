@@ -5,5 +5,10 @@
       border="{{ false }}"
       value="{{task.status === 'in-progress'?'进行中':'已完成'}}"
       />
+      <van-cell
+      title="位置"
+      border="{{ false }}"
+      value="{{task.location.name}}"
+      />
 </van-cell-group>
 <image wx:if="{{task.image}}" src="{{task.image}}"></image>

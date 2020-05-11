@@ -5,6 +5,10 @@ Page({
   data:{
     image: null
   },
+  // 不需要上传到页面中的数据
+  pageData: {
+    locationObj:{}
+  },
   selectImage: function(e){
     wx.chooseImage({
       success: res => {
@@ -27,7 +31,8 @@ Page({
   todos.add({
     data: {
       title: event.detail.value.title,
-      image: this.data.image
+      image: this.data.image,
+      location: this.pageData.locationObj
     }
   }).then(res =>{
     console.log(res._id)
@@ -41,5 +46,19 @@ Page({
       }
     })
   })
-}
+},
+  chooseLocation: function(e){
+    wx.chooseLocation({
+      success: res => {
+        console.log(res)
+        let locationObj = {
+          latitude: res.latitude,
+          longitude: res.longitude,
+          name: res.name,
+          address: res.address 
+        }
+        this.pageData.locationObj = locationObj
+      },
+    })
+  }
 })
