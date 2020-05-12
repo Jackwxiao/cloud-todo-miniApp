@@ -3,13 +3,12 @@
   position: fixed;
   z-index: 100;
   bottom: 100rpx;
-  right: 375rpx;
+  left: 50%;
+  transform: translate(-50%);
   background-color:#DCD9D8;
   border-radius: 50%;
 }
 .plusIcon{
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 80rpx;
 }

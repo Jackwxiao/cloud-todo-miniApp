@@ -1,8 +1,8 @@
 <!--pages/addTodo/addTodo.wxml-->
+<input name="title" type="text" placeholder="请输入代办事项"></input>
 <form bindsubmit="onSubmit">
-  <input name="title"></input>
-  <block wx:if= "{{image}}">
-    <image src="{{image}}"></image>
+  <block wx:if= "{{images}}">
+    <image src="{{images}}"></image>
   </block>
   <button bindtap="selectImage">添加图片</button>
   <button bindtap="chooseLocation">选择位置</button>

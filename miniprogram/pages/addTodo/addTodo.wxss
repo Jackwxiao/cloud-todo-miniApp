@@ -1,1 +1,16 @@
 /* pages/addTodo/addTodo.wxss */
+form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+block > image {
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+}
+button{
+  background: #F5F5F5;
+  border-radius: 10rpx;
+}
